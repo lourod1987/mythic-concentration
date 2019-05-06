@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Holtwood+One+SC|Lemon|Alfa+Slab+One" rel="stylesheet">
+    <link href="stylesheets/mythic.css" rel="stylesheet">
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script src="scripts/mythic-app.js"></script>
+    <title>Mythic Concentration Game</title>
+  </head>
+  <body>
+     <div class="bg">
+       <a href="https://luisdev.netlify.com/" title="Back to Portfolio"><button id="backtohome">Back to Portfolio</button></a>
+      </div>
+
+    <header class="header">
+      <h1>Mythic Concentration</h1>
+    </header> <!-- header -->  
+
+    <section  class="info">
+      <ul class="rating">
+        <li><img src="./mythic-imgs/primary-star.svg" alt="golden star"></li>
+        <li id="second"><img src="./mythic-imgs/primary-star.svg" alt="golden star"></li>
+        <li id="third"><img src="./mythic-imgs/primary-star.svg" alt="golden star"></li>
+        <li id="fourth"><img src="./mythic-imgs/primary-star.svg" alt="golden star"></li>
+        <li id="fifth"><img src="./mythic-imgs/primary-star.svg" alt="golden star"></li>
+      </ul>
+      <i class="moves"><span class="count"> - </span> Moves</i>
+      <p class="timer">Time <span class="time-count">--:--</span></p>
+      <div class="reset"><img src="./mythic-imgs/reset.svg" alt="reset game icon"></div>
+      <div class="sound"><span><img src="./mythic-imgs/volume-x.svg" id="mute"></span><img src="./mythic-imgs/volume.svg" id="play"></div>
+    </section> <!-- game info -->
+
+      <main class="whole-body">
+      <ul class="deck">
+        <li class=" card">
+          <i><img src="./mythic-imgs/cardback-med.svg" alt="Poseidon and Trident game logo"></i>
+        </li>
+        <li class=" card">
+          <i><img src="./mythic-imgs/cardback-med.svg" alt="Poseidon and Trident game logo"></i>
+        </li>
+        <li class=" card">
+          <i><img src="./mythic-imgs/cardback-med.svg" alt="Poseidon and Trident game logo"></i>
+        </li>
+        <li class=" card">
+          <i><img src="./mythic-imgs/cardback-med.svg" alt="Poseidon and Trident game logo"></i>
+        </li>
+        <li class=" card">
+          <i><img src="./mythic-imgs/cardback-med.svg" alt="Poseidon and Trident game logo"></i>
+        </li>
+        <li class=" card">
+          <i><img src="./mythic-imgs/cardback-med.svg" alt="Poseidon and Trident game logo"></i>
+        </li>
+        <li class=" card">
+          <i><img src="./mythic-imgs/cardback-med.svg" alt="Poseidon and Trident game logo"></i>
+        </li>
+        <li class=" card">
+          <i><img src="./mythic-imgs/cardback-med.svg" alt="Poseidon and Trident game logo"></i>
+        </li>
+        <li class=" card">
+          <i><img src="./mythic-imgs/cardback-med.svg" alt="Poseidon and Trident game logo"></i>
+        </li>
+        <li class=" card">
+          <i><img src="./mythic-imgs/cardback-med.svg" alt="Poseidon and Trident game logo"></i>
+        </li>
+        <li class=" card">
+          <i><img src="./mythic-imgs/cardback-med.svg" alt="Poseidon and Trident game logo"></i>
+        </li>
+        <li class=" card">
+          <i><img src="./mythic-imgs/cardback-med.svg" alt="Poseidon and Trident game logo"></i>
+        </li>
+        <li class=" card">
+          <i><img src="./mythic-imgs/cardback-med.svg" alt="Poseidon and Trident game logo"></i>
+        </li>
+        <li class=" card">
+          <i><img src="./mythic-imgs/cardback-med.svg" alt="Poseidon and Trident game logo"></i>
+        </li>
+        <li class=" card">
+          <i><img src="./mythic-imgs/cardback-med.svg" alt="Poseidon and Trident game logo"></i>
+        </li>
+        <li class=" card">
+          <i><img src="./mythic-imgs/cardback-med.svg" alt="Poseidon and Trident game logo"></i>
+        </li>
+      </ul> <!-- deck of cards -->
+      
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+        <div class="modal-content">
+         <span class="close">&times;</span>
+         <img src="./mythic-imgs/angel.png" alt="Angel with halo and arms wide open" id="mythic-win">
+         <img src="./mythic-imgs/win.png" alt="Posiedon with glowing crown" id="reg-win">
+         <h2>Poseidon Congratulates You! You embody Nike herself!</h2>
+         <button class="play-again">Play Again!</button>
+        </div>
+      </div>
+
+      <audio id="flip-sound">
+        <source src="audio/240776__f4ngy__card-flip.wav" type="audio/wav">
+        Your browser does not support the audio element.
+      </audio>
+      <audio id="fail-sound">
+        <source src="audio/67454__splashdust__negativebeep.wav" type="audio/wav">
+        Your browser does not support the audio element.
+      </audio>
+      <audio id="correct-sound">
+        <source src="audio/421002__eponn__correct.wav" type="audio/wav">
+        Your browser does not support the audio element.
+      </audio>
+      <audio id="reset-sound">
+        <source src="audio/19245__deathpie__shuffle.wav" type="audio/wav">
+        Your browser does not support the audio element.
+      </audio>
+      <audio id="win-sound">
+        <source src="audio/145428__soughtaftersounds__mystic-flutter-1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <audio id="star_loss-sound">
+        <source src="audio/320905__suzenako__the-ding.wav" type="audio/wav">
+        Your browser does not support the audio element.
+      </audio>
+      <audio id="volume_on-sound">
+        <source src="audio/217495__vkproduktion__switch-01.wav" type="audio/wav">
+        Your browser does not support the audio element.
+      </audio>
+
+    </main>
+      <!-- Footer -->
+    <footer>
+      <p>Made with &hearts; by Luis Rodriguez III</p>
+    </footer>
+
+  </body>
+</html>
